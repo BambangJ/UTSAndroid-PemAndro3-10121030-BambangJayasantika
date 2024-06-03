@@ -1,27 +1,20 @@
 package com.bams.utsandroid_pemandro3_10121030_bambangjayasantika
 //10121030-Bambang Jayasantika-3 Juni 2024
-import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-
-class SubActivity : AppCompatActivity() {
-    private var customDialog: Dialog? = null
+class SubActivity : AppCompatActivity(), CustomBottomSheetDialogFragment.OnOkClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
         val intent = intent
-        val intent2 = Intent(
-            this,
-            MainActivity::class.java
-        )
+        val intent2 = Intent(this, MainActivity::class.java)
 
         val tes = intent.getStringExtra(MainActivity.EXTRA_TES)
         val tglkon = intent.getStringExtra(MainActivity.EXTRA_TGLKON)
@@ -38,10 +31,8 @@ class SubActivity : AppCompatActivity() {
         val tvTgl = findViewById<TextView>(R.id.j_tgl)
         val tvHub = findViewById<TextView>(R.id.j_hub)
         val tvJk = findViewById<TextView>(R.id.j_jk)
-        val btn_simpan = findViewById<Button>(R.id.btn_simpan)
-        val btn_ubah = findViewById<Button>(R.id.btn_ubah)
-
-
+        val btnSimpan = findViewById<Button>(R.id.btn_simpan)
+        val btnUbah = findViewById<Button>(R.id.btn_ubah)
 
         tvTes.text = tes
         tvTglKon.text = tglkon
@@ -50,11 +41,13 @@ class SubActivity : AppCompatActivity() {
         tvTgl.text = tgl
         tvJk.text = jk
         tvHub.text = hub
-        initCustomDialog()
 
-        btn_simpan.setOnClickListener { customDialog!!.show() }
+        btnSimpan.setOnClickListener {
+            val bottomSheet = CustomBottomSheetDialogFragment()
+            bottomSheet.show(supportFragmentManager, "CustomBottomSheet")
+        }
 
-        btn_ubah.setOnClickListener {
+        btnUbah.setOnClickListener {
             intent2.putExtra(EXTRA_TES, tes)
             intent2.putExtra(EXTRA_TGLKON, tglkon)
             intent2.putExtra(EXTRA_STATUS, "ubah")
@@ -65,26 +58,28 @@ class SubActivity : AppCompatActivity() {
             intent2.putExtra(EXTRA_HUBUNGAN, hub)
             startActivity(intent2)
         }
-    }
-
-    private fun initCustomDialog() {
-        customDialog = Dialog(this@SubActivity)
-        customDialog!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        customDialog!!.setContentView(R.layout.activity_success)
-        customDialog!!.setCancelable(true)
-
 
         val btnBack = findViewById<ImageButton>(R.id.btnBack)
         btnBack.setOnClickListener {
-            val mainActivity = Intent(
-                applicationContext,
-                MainActivity::class.java
-            )
+            val mainActivity = Intent(applicationContext, MainActivity::class.java)
             startActivity(mainActivity)
         }
+    }
 
-        val btnok = customDialog!!.findViewById<Button>(R.id.btn_ok)
-        btnok.setOnClickListener { customDialog!!.dismiss() }
+    override fun onOkClicked() {
+
+        findViewById<TextView>(R.id.j_tes).text = ""
+        findViewById<TextView>(R.id.j_tglkon).text = ""
+        findViewById<TextView>(R.id.j_nik).text = ""
+        findViewById<TextView>(R.id.j_nama).text = ""
+        findViewById<TextView>(R.id.j_tgl).text = ""
+        findViewById<TextView>(R.id.j_jk).text = ""
+        findViewById<TextView>(R.id.j_hub).text = ""
+
+        val mainActivityIntent = Intent(this, MainActivity::class.java)
+        mainActivityIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(mainActivityIntent)
+        finish()
     }
 
     companion object {
@@ -98,3 +93,4 @@ class SubActivity : AppCompatActivity() {
         const val EXTRA_TGLKON: String = "tglkon"
     }
 }
+

@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:padding="0dp"
-            app:srcCompat="@drawable/back"
+            app:srcCompat="@drawable/baseline_arrow_back_24"
             tools:layout_editor_absoluteX="79dp"
             tools:layout_editor_absoluteY="62dp"
             android:contentDescription="backbutton" />

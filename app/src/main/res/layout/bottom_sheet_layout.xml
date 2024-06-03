@@ -42,6 +42,4 @@
         android:text="Ok"
         android:layout_marginHorizontal="30dp"
         android:textColor="@color/white"/>
-
-
 </LinearLayout>
