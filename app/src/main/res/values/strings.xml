@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">UTSAndroid-PemAndro3-10121030-BambangJayasantika</string>
+    <string name="backbutton">backbutton</string>
+    <string name="desk_awal">Form Pengisian Data</string>
+    <string name="text_info">Info</string>
+    <string name="desk_form">Form berikut ini bertujuan untuk memberikan informasi kepada pusat agar dapat mudah dilaporkan</string>
+    <string name="text_jenistes">Jenis Tes</string>
+    <string name="alert">• Harus Diisi</string>
+    <string name="text_nama">Nama</string>
+    <string name="text_nik">NIK</string>
+    <string name="text_alamat">Alamat</string>
+    <string name="text_jk">Jenis Kelamin</string>
+    <string name="text_tgl">Tanggal Lahir</string>
+    <string name="text_tglkon">Tanggal Terkonfirmasi</string>
+    <string name="text_rad2">PCR</string>
+    <string name="text_rad1">Rapid Antigen</string>
+    <string name="text_hub">Hubungan Dengan Anda</string>
+    <string name="text_rad3">Perempuan</string>"
+    <string name="text_rad4">Laki-laki</string>
+    <string name="text_rad5">Lainnya</string>
+    <string name="text_hub1">Orang Tua</string>
+    <string name="text_hub2">Suami/Istri</string>
+    <string name="text_hub3">Anak</string>
+    <string name="text_hub4">Kerabat Lainnya</string>
+    <string name="text_cek">Dengan ini saya menyetujui bahwa data yang saya isikan adalah benar</string>
+    <string name="text_lanjut">Selanjutnya</string>
+    <string name="text_berhasil">Berhasil Disimpan</string>
+    <string name="text_selesai">Terima kasih, laporan Anda membantu kami dalam melakukan penanganan kasus secara tepat.</string>
+    <string name="text_ceklagi">Cek Kembali Isian Data</string>
+</resources>
